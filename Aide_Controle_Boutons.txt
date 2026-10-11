@@ -1,0 +1,411 @@
+================================================================
+       GUIDE D'UTILISATION - CONTRÔLE AUDACITY (BOUTONS)
+================================================================
+
+Bienvenue dans votre interface de contrôle d'Audacity !
+Cette application vous permet de piloter Audacity avec des 
+boutons, sans utiliser la souris sur les menus d'Audacity.
+
+Version du guide : 1.0
+Dernière mise à jour : Octobre 2026
+
+
+----------------------------------------------------------------
+1. PRÉREQUIS IMPORTANTS (À VÉRIFIER AVANT DE COMMENCER)
+----------------------------------------------------------------
+
+Avant de lancer l'application, assurez-vous que :
+- Audacity est bien ouvert et lancé sur votre ordinateur.
+- Le module "mod-script-pipe" est activé :
+  Allez dans Édition > Préférences > Modules.
+  Cherchez "mod-script-pipe" et mettez-le sur "Activé".
+  Redémarrez Audacity si vous venez de le modifier.
+- Le 1er périphérique d'enregistrement est bien sélectionné :
+  Édition > Préférences > Périphériques > Enregistrement > Choix 1.
+- Le dossier du script est accessible en écriture (pour les exports).
+- Aucun projet Audacity n'est en cours d'enregistrement au moment 
+  du lancement de l'application.
+
+
+----------------------------------------------------------------
+2. COMMENT UTILISER L'APPLICATION ?
+----------------------------------------------------------------
+
+Étape 1 : Lancez l'application (audacity_button_control.py).
+Étape 2 : Vérifiez que le statut est "Connecté à Audacity ✓" (en vert).
+Étape 3 : Cliquez sur le bouton correspondant à l'action souhaitée.
+Étape 4 : Consultez le journal des actions en bas de la fenêtre 
+         pour vérifier que l'action a été exécutée.
+
+Le statut en haut de la fenêtre indique en permanence :
+- 🟢 Vert  : "Connecté à Audacity ✓" → tout fonctionne
+- 🔴 Rouge : "Erreur de connexion ✗" → vérifiez les prérequis
+- 🟠 Orange : "Connexion à Audacity..." → en cours de démarrage
+
+
+----------------------------------------------------------------
+3. DESCRIPTION DE L'INTERFACE
+----------------------------------------------------------------
+
+L'interface est organisée en 7 sections :
+
+┌─────────────────────────────────────────────────────────┐
+│  ▶️  LECTURE                                            │
+│  Contrôle la lecture de la piste audio                  │
+├─────────────────────────────────────────────────────────┤
+│  ⏺️  ENREGISTREMENT                                     │
+│  Démarre et arrête l'enregistrement audio               │
+├─────────────────────────────────────────────────────────┤
+│  ✂️  ÉDITION                                            │
+│  Opérations de copier/coller, annuler/refaire           │
+├─────────────────────────────────────────────────────────┤
+│  🎵  NAVIGATION                                         │
+│  Déplace le curseur dans la piste                       │
+├─────────────────────────────────────────────────────────┤
+│  🔍  ZOOM                                               │
+│  Modifie le niveau de zoom de la vue                    │
+├─────────────────────────────────────────────────────────┤
+│  💾  FICHIERS                                           │
+│  Sauvegarde le projet, exporte en MP3                   │
+├─────────────────────────────────────────────────────────┤
+│  📋  JOURNAL DES ACTIONS                                │
+│  Affiche l'historique de toutes les actions             │
+└─────────────────────────────────────────────────────────┘
+
+
+----------------------------------------------------------------
+4. LISTE DES BOUTONS ET LEUR FONCTION
+----------------------------------------------------------------
+
+▶️ LECTURE (Section verte)
+
+   ▶  Lecture
+      Démarre la lecture de la piste audio actuelle.
+
+   ⏸  Pause
+      Met la lecture en pause. Cliquez sur "Lecture" pour reprendre.
+
+   ⏹  Stop
+      Arrête complètement la lecture et remet le curseur à sa 
+      position de départ.
+
+⏺️ ENREGISTREMENT (Section rouge)
+
+   ⏺  Enregistrer
+      Démarre un enregistrement audio sur une nouvelle piste.
+      Utilise le 1er périphérique d'enregistrement (micro).
+      
+      ⚠️ Parlez dans votre micro pendant l'enregistrement.
+      Cliquez sur "Arrêter" pour terminer.
+
+   ⏹  Arrêter
+      Arrête l'enregistrement en cours et finalise la piste.
+
+✂️ ÉDITION (Section violette)
+
+   Tout sélectionner
+      Sélectionne toute la piste et toute la durée audio.
+      Utile avant de copier ou supprimer.
+
+   Copier
+      Copie la sélection dans le presse-papiers.
+      Il faut d'abord sélectionner quelque chose.
+
+   Coller
+      Colle le contenu du presse-papiers à la position du curseur.
+
+   Couper
+      Coupe la sélection et la place dans le presse-papiers.
+
+   ↶  Annuler
+      Annule la dernière action effectuée (Ctrl+Z).
+      Peut être utilisé plusieurs fois d'affilée.
+
+   ↷  Refaire
+      Rétablit une action annulée (Ctrl+Y).
+
+🎵 NAVIGATION (Section bleue)
+
+   ⏪  -15s
+      Recule le curseur de 15 secondes dans la piste.
+
+   ◀  -1s
+      Recule le curseur de 1 seconde.
+
+   ▶  +1s
+      Avance le curseur de 1 seconde.
+
+   ⏩  +15s
+      Avance le curseur de 15 secondes.
+
+   ⏮  Début
+      Place le curseur au tout début de la piste.
+
+   ⏭  Fin
+      Place le curseur à la fin de la piste.
+
+🔍 ZOOM (Section grise)
+
+   🔍  Zoom avant
+      Agrandit la vue (les ondes sont plus larges).
+
+   🔎  Zoom arrière
+      Réduit la vue (plus de piste visible).
+
+   🗑  Supprimer
+      Supprime la sélection actuelle dans la piste.
+      Il faut d'abord sélectionner quelque chose.
+
+💾 FICHIERS (Section vert foncé)
+
+   💾  Sauvegarder projet
+      Sauvegarde le projet Audacity au format .aup3 dans le 
+      dossier "Projets" situé à côté du script Python.
+      
+      Nom du fichier : projet_YYYYMMDD_HHMMSS.aup3
+      Exemple : projet_20261008_111523.aup3
+      
+      ⚠️ Audacity crée automatiquement 3 fichiers par projet :
+         - projet_YYYYMMDD_HHMMSS.aup3        (le projet)
+         - projet_YYYYMMDD_HHMMSS.aup3-shm    (mémoire partagée)
+         - projet_YYYYMMDD_HHMMSS.aup3-wal    (journal)
+      
+      Pour rouvrir un projet, double-cliquez UNIQUEMENT sur le 
+      fichier .aup3. Les deux autres sont ouverts automatiquement.
+
+   🎵  Exporter en MP3
+      Exporte l'audio en fichier MP3 dans le dossier "Exports" 
+      situé à côté du script Python.
+      
+      Nom du fichier : export_YYYYMMDD_HHMMSS.mp3
+      Exemple : export_20261008_104103.mp3
+      
+      ✨ L'application sélectionne automatiquement TOUTE la piste 
+      et TOUTE la durée avant l'export. Cela garantit un fichier 
+      MP3 complet, même si vous avez une sélection vide ou 
+      partielle dans Audacity.
+      
+      ✅ L'application affiche la taille du fichier créé. Si elle 
+      est inférieure à 5 Ko, un avertissement s'affiche (fichier 
+      probablement vide).
+
+📋 JOURNAL DES ACTIONS
+
+   Affiche l'historique des actions effectuées :
+   - ✓  Vert : action réussie
+   - ❌  Rouge : erreur ou commande non reconnue
+   - ⚠️  Orange : avertissement
+   - ℹ️  Bleu : information
+
+   Le journal défile automatiquement vers le bas pour toujours 
+   afficher la dernière action.
+
+
+----------------------------------------------------------------
+5. EXEMPLES D'UTILISATION
+----------------------------------------------------------------
+
+▶️ EXEMPLE 1 : Écouter un fichier audio
+   1. Ouvrez un fichier audio dans Audacity (Fichier > Ouvrir)
+   2. Cliquez sur "▶ Lecture"
+   3. La lecture démarre immédiatement
+   4. Cliquez sur "⏸ Pause" pour mettre en pause
+   5. Cliquez sur "▶ Lecture" pour reprendre
+   6. Cliquez sur "⏹ Stop" pour arrêter
+
+▶️ EXEMPLE 2 : Enregistrer une nouvelle piste
+   1. Cliquez sur "⏺ Enregistrer"
+   2. Parlez dans votre micro pendant 10-20 secondes
+   3. Cliquez sur "⏹ Arrêter"
+   4. Une nouvelle piste apparaît dans Audacity
+   5. Cliquez sur "▶ Lecture" pour réécouter
+
+▶️ EXEMPLE 3 : Exporter en MP3
+   1. Chargez ou enregistrez de l'audio dans Audacity
+   2. Cliquez sur "🎵 Exporter en MP3"
+   3. Attendez le message "✓ Fichier MP3 créé"
+   4. Ouvrez le dossier "Exports" pour trouver le fichier
+   5. Double-cliquez sur le fichier pour l'écouter
+
+▶️ EXEMPLE 4 : Éditer et dupliquer une section
+   1. Positionnez le curseur avec les boutons de navigation
+   2. Cliquez sur "Tout sélectionner"
+   3. Cliquez sur "Copier"
+   4. Déplacez le curseur (par exemple avec "⏩ +15s")
+   5. Cliquez sur "Coller"
+   6. Une copie est insérée à la nouvelle position
+   7. Si erreur, cliquez sur "↶ Annuler"
+
+▶️ EXEMPLE 5 : Sauvegarder puis rouvrir un projet
+   1. Enregistrez ou importez de l'audio
+   2. Cliquez sur "💾 Sauvegarder projet"
+   3. Un fichier .aup3 apparaît dans "Projets/"
+   4. Fermez Audacity
+   5. Double-cliquez sur le fichier .aup3 pour rouvrir
+   6. Le projet s'ouvre avec toutes vos pistes
+
+
+----------------------------------------------------------------
+6. DÉPANNAGE (QUE FAIRE EN CAS DE PROBLÈME ?)
+----------------------------------------------------------------
+
+❌ "Erreur de connexion ✗" au démarrage :
+   -> Audacity est-il bien ouvert ?
+   -> Le module "mod-script-pipe" est-il sur "Activé" ?
+   -> Essayez de lancer Audacity et le script en tant qu'administrateur.
+   -> Redémarrez Audacity après avoir modifié les préférences.
+
+❌ Un bouton ne fait rien :
+   -> Vérifiez le journal en bas de la fenêtre.
+   -> Si aucune action n'est enregistrée, l'application n'est 
+      peut-être pas connectée (voir statut en haut).
+   -> Si une erreur apparaît, lisez le message pour comprendre.
+
+❌ "Votre commande de traitement par lot de X n'a pas été reconnue" :
+   -> La commande envoyée à Audacity n'existe pas dans votre version.
+   -> Ouvrez Audacity : Outils > Macros > Insérer.
+   -> Cherchez la commande dans la liste et vérifiez son code exact.
+
+❌ "Le canal de communication est sur le point d'être fermé" :
+   -> Ce bug est corrigé : l'application se reconnecte automatiquement.
+   -> Si l'erreur persiste, redémarrez Audacity.
+
+❌ Le fichier MP3 fait moins de 5 Ko :
+   -> Le projet Audacity ne contient probablement pas d'audio.
+   -> Vérifiez qu'une piste est bien visible (courbe bleue).
+   -> Vérifiez qu'aucune piste n'est en sourdine (bouton M gris).
+   -> Enregistrez d'abord de l'audio avec "⏺ Enregistrer".
+
+❌ Le bouton "Coller" ne fait rien :
+   -> Vous n'avez rien copié au préalable.
+   -> Cliquez d'abord sur "Tout sélectionner" puis sur "Copier".
+
+❌ Le bouton "Supprimer" ne fait rien :
+   -> Rien n'est sélectionné dans la piste.
+   -> Cliquez d'abord sur "Tout sélectionner".
+
+❌ La sauvegarde ne crée pas de fichier .aup3 :
+   -> Vérifiez que le dossier "Projets" est accessible en écriture.
+   -> Vérifiez que le projet contient bien de l'audio.
+
+❌ Le micro ne capte rien :
+   -> Paramètres Windows > Système > Son > Entrée.
+   -> Vérifiez que le bon micro est sélectionné.
+   -> Vérifiez que le niveau monte quand vous parlez.
+   -> Réglez le volume du micro entre 50 et 80%.
+
+
+----------------------------------------------------------------
+7. FERMETURE DE L'APPLICATION
+----------------------------------------------------------------
+
+Cliquez simplement sur la croix (X) de la fenêtre. 
+La connexion avec Audacity sera automatiquement fermée.
+Audacity reste ouvert, seul le contrôle par boutons s'arrête.
+
+
+----------------------------------------------------------------
+8. ORGANISATION DES FICHIERS
+----------------------------------------------------------------
+
+Après utilisation, votre dossier ressemblera à ceci :
+
+   Contrôle Audacity/
+   ├── audacity_button_control.py          (script boutons)
+   ├── audacity_voice_control.py           (script vocal)
+   ├── Aide_Controle_Boutons.txt           (ce fichier)
+   ├── Aide_Controle_Vocal_Audacity.txt    (aide version vocale)
+   ├── Exports/                            (créé automatiquement)
+   │   ├── export_20261008_104103.mp3
+   │   ├── export_20261008_104200.mp3
+   │   └── ...
+   └── Projets/                            (créé automatiquement)
+       ├── projet_20261008_111523.aup3
+       ├── projet_20261008_111523.aup3-shm
+       ├── projet_20261008_111523.aup3-wal
+       └── ...
+
+Les dossiers "Exports" et "Projets" sont créés automatiquement 
+lors du premier export ou de la première sauvegarde.
+Vous pouvez les déplacer ou les vider à tout moment sans casser 
+l'application (ils seront recréés).
+
+
+----------------------------------------------------------------
+9. INFORMATIONS TECHNIQUES (POUR LES CURIEUX)
+----------------------------------------------------------------
+
+- Communication avec Audacity : pipes nommés Windows (pywin32).
+- Interface graphique : CustomTkinter (mode sombre).
+- Aucune connexion internet requise (contrairement à la version vocale).
+
+Commandes Audacity utilisées par l'application :
+   - Play / Stop / Pause
+   - Record1stChoice (enregistrement 1er périphérique)
+   - SelectTracks: Mode="Set" (sélection des pistes)
+   - SelectTime: Start=0 End=99999 (sélection temporelle)
+   - UnMuteAllTracks (désactivation des sourdines)
+   - Export2 (export MP3 avec Filename et NumChannels)
+   - SaveProject2 (sauvegarde projet .aup3 avec Filename)
+   - Undo / Redo
+   - Cut / Copy / Paste / SelectAll
+   - CursorShortJumpRight / CursorShortJumpLeft (+/- 1 seconde)
+   - CursorLongJumpRight / CursorLongJumpLeft (+/- 15 secondes)
+   - CursTrackStart / CursTrackEnd (début/fin de piste)
+   - ZoomIn / ZoomOut
+   - Delete
+
+Points techniques importants du code :
+   - Auto-reconnexion du pipe en cas d'erreur (codes 109 et 232).
+   - Vidage du pipe avant chaque commande (_drain_pipe) pour 
+     éviter de lire d'anciennes réponses résiduelles.
+   - Lecture complète des réponses d'Audacity (jusqu'au '\n' final).
+   - Sélection automatique des pistes et de la durée avant l'export.
+   - Vérification de la taille du fichier après export (< 5 Ko = suspect).
+   - Vérification de la création du fichier après sauvegarde.
+
+Avantages de cette version par rapport à la version vocale :
+   - Aucune reconnaissance vocale (donc plus rapide et fiable)
+   - Aucune connexion internet requise
+   - Aucun risque de mauvaise reconnaissance
+   - Silencieux (pas de synthèse vocale)
+   - Moins de dépendances (pas de SpeechRecognition ni pyttsx3)
+
+
+----------------------------------------------------------------
+10. POUR ALLER PLUS LOIN (IDÉES D'AMÉLIORATION)
+----------------------------------------------------------------
+
+Voici des améliorations possibles pour les versions futures :
+- Ajouter des raccourcis clavier (Ctrl+L = Lecture, Ctrl+R = 
+  Enregistrer, Ctrl+E = Exporter, etc.).
+- Organiser les boutons dans des onglets (Lecture / Édition / 
+  Fichiers).
+- Ajouter une barre de progression pendant l'export MP3.
+- Ajouter un indicateur visuel clignotant pendant l'enregistrement.
+- Ajouter un bouton "Ouvrir Audacity" pour lancer le programme.
+- Ajouter un bouton "Actualiser la connexion".
+- Ajouter un mode "Expert" avec plus de commandes.
+- Exporter en WAV ou OGG en plus du MP3.
+- Choix du dossier de destination des exports via une interface.
+- Compilation en .exe pour distribuer l'application sans Python.
+- Gestion de plusieurs pistes (mute/unmute par piste).
+
+
+----------------------------------------------------------------
+11. CHANGELOG (HISTORIQUE DES VERSIONS)
+----------------------------------------------------------------
+
+Version 1.0 (actuelle)
+   + Version initiale avec boutons
+   + Toutes les fonctionnalités de la version vocale
+   + Interface organisée en 7 sections claires
+   + Journal des actions intégré
+   + Couleurs par catégorie
+
+
+================================================================
+        Merci d'utiliser le Contrôle Audacity par Boutons !
+        
+             🎚️ Bon enregistrement et bonne création ! 🎵
+================================================================
